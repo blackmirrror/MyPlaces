@@ -11,8 +11,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ru.blackmirrror.myplaces.auth.AuthFeature
+import ru.blackmirrror.myplaces.common.Routes
 import ru.blackmirrror.myplaces.ui.theme.MyPlacesTheme
+import ru.blackmirrror.places.PlacesFeature
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -21,29 +27,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyPlacesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                Navigation()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+fun Navigation() {
+    val navController = rememberNavController()
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyPlacesTheme {
-        Greeting("Android")
+    NavHost(navController = navController, startDestination = Routes.PLACES) {
+        composable(Routes.AUTH_FEATURE) { AuthFeature(navController) }
+        composable(Routes.PLACES) { PlacesFeature(navController) }
     }
 }

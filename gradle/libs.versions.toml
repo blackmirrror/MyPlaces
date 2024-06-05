@@ -9,6 +9,8 @@ lifecycleRuntimeKtx = "2.8.1"
 activityCompose = "1.9.0"
 composeBom = "2024.05.00"
 jetbrainsKotlinJvm = "1.9.0"
+appcompat = "1.7.0"
+material = "1.12.0"
 
 retrofit = "2.11.0"
 retrofit-converter = "2.9.0"
@@ -19,17 +21,17 @@ kotlin-serialization-json = "1.6.3"
 
 ksp = "2.0.0-1.0.21"
 dagger = "2.48"
+hilt-navigation-compose = "1.2.0"
 androidx-annotation = "1.8.0"
 jakarta-inject = "2.0.1"
-appcompat = "1.7.0"
-material = "1.12.0"
+
+androidx-navigatoin-compose = "2.7.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui" }
@@ -39,6 +41,12 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-adapters-result = { module = "com.github.skydoves:retrofit-adapters-result", version.ref = "retrofit-adapters-result" }
@@ -50,12 +58,13 @@ kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-j
 
 dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 dagger-hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt-navigation-compose" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
 dagger-main = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "androidx-annotation"}
 jakarta-inject = { module = "jakarta.inject:jakarta.inject-api", version.ref = "jakarta-inject" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+androidx-navigatoin-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigatoin-compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

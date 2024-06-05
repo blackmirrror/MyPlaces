@@ -1,6 +1,7 @@
 package ru.blackmirrror.myplaces.data.models
 
 import ru.blackmirrror.myplaces.api.models.MarkDto
+import ru.blackmirrror.myplaces.api.models.UserRequestDto
 import ru.blackmirrror.myplaces.api.models.UserResponseDto
 
 internal fun MarkDto.toMark(isFavorite: Boolean = false): Mark {
@@ -43,5 +44,19 @@ internal fun UserResponse.toUserResponseDto(): UserResponseDto {
     return UserResponseDto(
         id = id,
         username = username
+    )
+}
+
+internal fun UserRequestDto.toUserRequest(): UserRequest {
+    return UserRequest(
+        username = username,
+        password = password
+    )
+}
+
+internal fun UserRequest.toUserRequestDto(): UserRequestDto {
+    return UserRequestDto(
+        username = username,
+        password = password
     )
 }

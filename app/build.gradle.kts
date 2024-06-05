@@ -75,6 +75,12 @@ dependencies {
 
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
+    implementation(libs.androidx.navigatoin.compose)
 
     implementation(project(":api"))
+    implementation(project(":data"))
+    implementation(project(":database"))
+    implementation(project(":common"))
+    implementation(project(":features:auth"))
+    implementation(project(":features:places"))
 }

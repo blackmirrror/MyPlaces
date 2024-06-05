@@ -11,7 +11,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/api" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/database" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/auth" />
+            <option value="$PROJECT_DIR$/features/places" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

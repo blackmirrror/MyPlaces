@@ -23,3 +23,7 @@ rootProject.name = "My Places"
 include(":app")
 include(":api")
 include(":data")
+include(":database")
+include(":features:auth")
+include(":features:places")
+include(":common")
