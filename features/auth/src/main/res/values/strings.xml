@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_login">Логин</string>
+    <string name="title_register">Регистрация</string>
+
+    <string name="link_enter_as_guest">Войти как гость</string>
+    <string name="link_enter">Войти</string>
+    <string name="link_register">Зарегистрироваться</string>
+
+    <string name="hint_username">Имя</string>
+    <string name="hint_password">Пароль</string>
+</resources>

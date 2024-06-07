@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Routes.PLACES) {
+    NavHost(navController = navController, startDestination = Routes.AUTH_FEATURE) {
         composable(Routes.AUTH_FEATURE) { AuthFeature(navController) }
         composable(Routes.PLACES) { PlacesFeature(navController) }
     }
