@@ -23,6 +23,12 @@ class UserSharedPreferences @Inject constructor(private val context: Context) {
             sharedPreferences.edit().putString(context.getString(R.string.key_username), value).apply()
         }
 
+    var email: String?
+        get() = sharedPreferences.getString(context.getString(R.string.key_email), null)
+        set(value) {
+            sharedPreferences.edit().putString(context.getString(R.string.key_email), value).apply()
+        }
+
     var password: String?
         get() = sharedPreferences.getString(context.getString(R.string.key_password), null)
         set(value) {
@@ -37,6 +43,7 @@ class UserSharedPreferences @Inject constructor(private val context: Context) {
 
     fun clearPreferences() {
         sharedPreferences.edit().remove(context.getString(R.string.key_id)).apply()
+        sharedPreferences.edit().remove(context.getString(R.string.key_email)).apply()
         sharedPreferences.edit().remove(context.getString(R.string.key_username)).apply()
         sharedPreferences.edit().remove(context.getString(R.string.key_password)).apply()
         sharedPreferences.edit().putBoolean(context.getString(R.string.key_is_guest), false).apply()

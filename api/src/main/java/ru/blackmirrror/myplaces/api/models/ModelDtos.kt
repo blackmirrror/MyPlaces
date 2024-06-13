@@ -3,77 +3,37 @@ package ru.blackmirrror.myplaces.api.models
 import kotlinx.serialization.SerialName
 
 data class UserResponseDto (
-    @SerialName("id"          ) var id          : Long,
-    @SerialName("username"    ) var username    : String
+    @SerialName("id"          ) val id          : Long,
+    @SerialName("username"    ) val username    : String,
+    @SerialName("email"       ) val email       : String
 )
 
 data class UserRequestDto (
-    @SerialName("username"    ) var username    : String,
-    @SerialName("password"    ) var password    : String
+    @SerialName("username"    ) val username    : String? = null,
+    @SerialName("email"       ) val email       : String,
+    @SerialName("password"    ) val password    : String
 )
 
 data class MarkDto (
-    @SerialName("id"          ) var id          : Long?  = null,
-    @SerialName("latitude"    ) var latitude    : Double,
-    @SerialName("longitude"   ) var longitude   : Double,
-    @SerialName("description" ) var description : String,
-    @SerialName("imageUrl"    ) var imageUrl    : String?  = null,
-    @SerialName("likes"       ) var likes       : Int = 0,
-    @SerialName("user"        ) var user        : UserResponseDto?  = null,
-    @SerialName("dateChanges" ) var dateChanges : Long?    = null,
-    @SerialName("dateCreate"  ) var dateCreate  : Long?    = null
-) {
-    fun toMarlLocal(isFavorite: Boolean = false): MarkLocal {
-        return MarkLocal(
-            id = id,
-            latitude = latitude,
-            longitude = longitude,
-            description = description,
-            imageUrl = imageUrl,
-            likes = likes,
-            user = user,
-            dateChanges = dateChanges,
-            dateCreate = dateCreate,
-            isFavorite = isFavorite
-        )
-    }
-}
+    @SerialName("id"          ) val id          : Long?  = null,
+    @SerialName("latitude"    ) val latitude    : Double,
+    @SerialName("longitude"   ) val longitude   : Double,
+    @SerialName("description" ) val description : String,
+    @SerialName("imageUrl"    ) val imageUrl    : String?  = null,
+    @SerialName("likes"       ) val likes       : Int = 0,
+    @SerialName("user"        ) val user        : UserResponseDto?  = null,
+    @SerialName("dateChanges" ) val dateChanges : Long?    = null,
+    @SerialName("dateCreate"  ) val dateCreate  : Long?    = null
+)
 
 data class FavoriteDto (
-    @SerialName("id"          ) var id          : Long?  = null,
-    @SerialName("mark"        ) var mark        : MarkDto,
-    @SerialName("user"        ) var user        : UserResponseDto,
+    @SerialName("id"          ) val id          : Long?  = null,
+    @SerialName("mark"        ) val mark        : MarkDto,
+    @SerialName("user"        ) val user        : UserResponseDto,
 )
 
 data class SubscribeDto (
-    @SerialName("id"          ) var id          : Long?  = null,
-    @SerialName("user"        ) var user        : UserResponseDto,
-    @SerialName("subscribe"   ) var subscribe   : UserResponseDto,
+    @SerialName("id"          ) val id          : Long?  = null,
+    @SerialName("user"        ) val user        : UserResponseDto,
+    @SerialName("subscribe"   ) val subscribe   : UserResponseDto,
 )
-
-data class MarkLocal (
-    @SerialName("id"          ) var id          : Long?  = null,
-    @SerialName("latitude"    ) var latitude    : Double,
-    @SerialName("longitude"   ) var longitude   : Double,
-    @SerialName("description" ) var description : String,
-    @SerialName("imageUrl"    ) var imageUrl    : String?  = null,
-    @SerialName("likes"       ) var likes       : Int = 0,
-    @SerialName("user"        ) var user        : UserResponseDto?  = null,
-    @SerialName("dateChanges" ) var dateChanges : Long?    = null,
-    @SerialName("dateCreate"  ) var dateCreate  : Long?    = null,
-    var isFavorite: Boolean = false
-) {
-    fun toMarkDto(): MarkDto {
-        return MarkDto(
-            id = id,
-            latitude = latitude,
-            longitude = longitude,
-            description = description,
-            imageUrl = imageUrl,
-            likes = likes,
-            user = user,
-            dateChanges = dateChanges,
-            dateCreate = dateCreate
-        )
-    }
-}

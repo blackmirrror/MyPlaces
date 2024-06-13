@@ -26,6 +26,7 @@ androidx-annotation = "1.8.0"
 jakarta-inject = "2.0.1"
 
 androidx-navigatoin-compose = "2.7.7"
+uiTextGoogleFonts = "1.6.7"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -65,6 +66,7 @@ androidx-annotation = { module = "androidx.annotation:annotation", version.ref =
 jakarta-inject = { module = "jakarta.inject:jakarta.inject-api", version.ref = "jakarta-inject" }
 
 androidx-navigatoin-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigatoin-compose" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

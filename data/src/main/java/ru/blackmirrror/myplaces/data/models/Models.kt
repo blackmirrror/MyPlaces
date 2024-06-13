@@ -1,36 +1,38 @@
 package ru.blackmirrror.myplaces.data.models
 
 data class UserResponse (
-    var id          : Long,
-    var username    : String
+    val id          : Long,
+    val username    : String,
+    val email       : String
 )
 
 data class UserRequest (
-    var username    : String,
-    var password    : String
+    val username: String? = null,
+    val email       : String,
+    val password    : String
 )
 
 data class FavoriteDto (
-    var id          : Long?  = null,
-    var mark        : Mark,
-    var user        : UserResponse,
+    val id          : Long?  = null,
+    val mark        : Mark,
+    val user        : UserResponse
 )
 
 data class SubscribeDto (
-    var id          : Long?  = null,
-    var user        : UserResponse,
-    var subscribe   : UserResponse,
+    val id          : Long?  = null,
+    val user        : UserResponse,
+    val subscribe   : UserResponse
 )
 
 data class Mark (
-    var id          : Long?  = null,
-    var latitude    : Double,
-    var longitude   : Double,
-    var description : String,
-    var imageUrl    : String?  = null,
-    var likes       : Int = 0,
-    var user        : UserResponse?  = null,
-    var dateChanges : Long?    = null,
-    var dateCreate  : Long?    = null,
-    var isFavorite: Boolean = false
+    val id          : Long?  = null,
+    val latitude    : Double,
+    val longitude   : Double,
+    val description : String,
+    val imageUrl    : String?  = null,
+    val likes       : Int = 0,
+    val user        : UserResponse?  = null,
+    val dateChanges : Long?    = null,
+    val dateCreate  : Long?    = null,
+    val isFavorite: Boolean = false
 )

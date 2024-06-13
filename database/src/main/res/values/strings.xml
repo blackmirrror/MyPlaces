@@ -2,6 +2,7 @@
 <resources>
     <string name="prefs_name">userDataPrefs</string>
     <string name="key_id">id</string>
+    <string name="key_email">email</string>
     <string name="key_username">username</string>
     <string name="key_password">password</string>
     <string name="key_is_guest">isGuest</string>

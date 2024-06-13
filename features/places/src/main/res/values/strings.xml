@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_title_enter">Вход в аккаунт</string>
+    <string name="dialog_message_enter">Вы можете войти, чтобы иметь больше функционала в приложении</string>
+    <string name="dialog_confirm_enter">Войти</string>
+    <string name="dialog_cancel_enter">Остаться гостем</string>
+</resources>

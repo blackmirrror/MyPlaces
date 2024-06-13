@@ -18,9 +18,6 @@ class PlacesViewModel @Inject constructor(
     private val _userState = MutableStateFlow<UserState>(UserState.None)
     val userState: StateFlow<UserState> = _userState
 
-    private val _shouldNavigateToAuth = MutableStateFlow(false)
-    val shouldNavigateToAuth: StateFlow<Boolean> = _shouldNavigateToAuth
-
     init {
         checkAuthentication()
     }
@@ -35,13 +32,5 @@ class PlacesViewModel @Inject constructor(
 
     fun rememberAsGuest() {
         authRepository.rememberAsGuest()
-    }
-
-    fun onLoginConfirmed() {
-        _shouldNavigateToAuth.value = true
-    }
-
-    fun resetNavigationFlag() {
-        _shouldNavigateToAuth.value = false
     }
 }

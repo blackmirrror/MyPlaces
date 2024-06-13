@@ -3,18 +3,22 @@ package ru.blackmirrror.myplaces.auth
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import ru.blackmirrror.myplaces.data.models.UserRequest
+import ru.blackmirrror.myplaces.auth.usecases.LoginUserUseCase
+import ru.blackmirrror.myplaces.auth.usecases.RegisterUserUseCase
 import ru.blackmirrror.myplaces.data.models.UserState
 import ru.blackmirrror.myplaces.data.repositories.AuthRepository
 import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
+    private val loginUserUseCase: LoginUserUseCase,
+    private val registerUserUseCase: RegisterUserUseCase,
     private val authRepository: AuthRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val _pageType = MutableStateFlow(LOGIN_PAGE)
     val pageType: StateFlow<Boolean> = _pageType
@@ -22,23 +26,29 @@ class AuthViewModel @Inject constructor(
     private val _userState = MutableStateFlow<UserState>(UserState.None)
     val userState: StateFlow<UserState> = _userState
 
-    private val _shouldNavigateToPlaces = MutableStateFlow(false)
-    val shouldNavigateToPlaces: StateFlow<Boolean> = _shouldNavigateToPlaces
-
-    fun login(username: String, password: String) {
+    fun login(email: String, password: String) {
         viewModelScope.launch {
-            authRepository.login(
-                UserRequest(username, password)
+            _userState.value = UserState.None
+            delay(100)
+            loginUserUseCase.invoke(
+                email, password
             ).collect { userState ->
                 _userState.value = userState
             }
         }
     }
 
-    fun register(username: String, password: String) {
+    fun register(
+        username: String,
+        email: String,
+        password: String,
+        passwordAccess: String
+    ) {
         viewModelScope.launch {
-            authRepository.register(
-                UserRequest(username, password)
+            _userState.value = UserState.None
+            delay(100)
+            registerUserUseCase.invoke(
+                username, email, password, passwordAccess
             ).collect { userState ->
                 _userState.value = userState
             }
@@ -51,14 +61,6 @@ class AuthViewModel @Inject constructor(
 
     fun changePageType() {
         _pageType.value = !_pageType.value
-    }
-
-    fun onLoginConfirmed() {
-        _shouldNavigateToPlaces.value = true
-    }
-
-    fun resetNavigationFlag() {
-        _shouldNavigateToPlaces.value = false
     }
 
     companion object {

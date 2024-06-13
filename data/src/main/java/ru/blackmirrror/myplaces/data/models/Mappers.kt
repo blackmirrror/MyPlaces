@@ -36,6 +36,7 @@ internal fun Mark.toMarkDto(): MarkDto {
 internal fun UserResponseDto.toUserResponse(): UserResponse {
     return UserResponse(
         id = id,
+        email = email,
         username = username
     )
 }
@@ -43,6 +44,7 @@ internal fun UserResponseDto.toUserResponse(): UserResponse {
 internal fun UserResponse.toUserResponseDto(): UserResponseDto {
     return UserResponseDto(
         id = id,
+        email = email,
         username = username
     )
 }
@@ -50,6 +52,7 @@ internal fun UserResponse.toUserResponseDto(): UserResponseDto {
 internal fun UserRequestDto.toUserRequest(): UserRequest {
     return UserRequest(
         username = username,
+        email = email,
         password = password
     )
 }
@@ -57,6 +60,7 @@ internal fun UserRequestDto.toUserRequest(): UserRequest {
 internal fun UserRequest.toUserRequestDto(): UserRequestDto {
     return UserRequestDto(
         username = username,
+        email = email,
         password = password
     )
 }

@@ -8,6 +8,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ru.blackmirrror.myplaces.api.ApiFactory
 import ru.blackmirrror.myplaces.api.ApiService
+import ru.blackmirrror.myplaces.auth.usecases.LoginUserUseCase
+import ru.blackmirrror.myplaces.auth.usecases.RegisterUserUseCase
 import ru.blackmirrror.myplaces.data.repositories.AuthRepository
 import ru.blackmirrror.myplaces.database.sharedPrefs.UserSharedPreferences
 import javax.inject.Singleton
@@ -40,5 +42,19 @@ object AppModule {
             service = service,
             userPrefs = userPrefs
         )
+    }
+
+    @Provides
+    fun provideLoginUserUseCase(
+        authRepository: AuthRepository
+    ): LoginUserUseCase {
+        return LoginUserUseCase(authRepository)
+    }
+
+    @Provides
+    fun provideRegisterUserUseCase(
+        authRepository: AuthRepository
+    ): RegisterUserUseCase {
+        return RegisterUserUseCase(authRepository)
     }
 }

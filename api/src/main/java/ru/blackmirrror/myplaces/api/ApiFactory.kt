@@ -4,21 +4,27 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
+import java.net.SocketTimeoutException
 import java.util.concurrent.TimeUnit
 
 object ApiFactory {
 
     private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(makeApiKeyInterceptor())
+        .addInterceptor(makeInterceptor())
         .connectTimeout(30, TimeUnit.SECONDS)
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
 
-    private fun makeApiKeyInterceptor(): Interceptor {
+    private fun makeInterceptor(): Interceptor {
         return Interceptor { chain ->
             val originalRequest = chain.request()
             val newRequest = originalRequest.newBuilder().build()
-            chain.proceed(newRequest)
+            try {
+                chain.proceed(newRequest)
+            } catch (e: SocketTimeoutException) {
+                throw IOException("SocketTimeoutException")
+            }
         }
     }
 

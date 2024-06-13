@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_login">Логин</string>
-    <string name="title_register">Регистрация</string>
+    <string name="title_login">Войдите, чтобы продолжить</string>
+    <string name="title_welcome">С возвращением!</string>
+    <string name="title_register">Зарегистрируйтесь, чтобы продолжить</string>
 
     <string name="link_enter_as_guest">Войти как гость</string>
     <string name="link_enter">Войти</string>
     <string name="link_register">Зарегистрироваться</string>
 
     <string name="hint_username">Имя</string>
+    <string name="hint_email">Почта</string>
     <string name="hint_password">Пароль</string>
+    <string name="hint_password_access">Подтверждение пароля</string>
+
+    <string name="error_empty_field">Поля не могут быть пустыми</string>
+    <string name="error_not_match_pattern">Введите верные данные</string>
+    <string name="error_email_or_password_not_found">Пожалуйста, проверьте почту или пароль</string>
+    <string name="error_passwords_different">Пароли различаются</string>
+    <string name="error_password_conflict">Пароль для данного пользователя не верный</string>
+
+    <string name="error_connection">Соединение отсутствует</string>
+    <string name="error_server">Ошибка сервера, попробуйте войти позже</string>
+
+    <string name="content_description_refresh">Перезагрузить</string>
+    <string name="content_description_account">Имя</string>
+    <string name="content_description_email">Почта</string>
+    <string name="content_description_password">Пароль</string>
 </resources>

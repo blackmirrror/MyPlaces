@@ -4,20 +4,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import ru.blackmirrror.myplaces.common.theme.MyPlacesTheme
 import dagger.hilt.android.AndroidEntryPoint
-import ru.blackmirrror.myplaces.auth.AuthFeature
-import ru.blackmirrror.myplaces.common.Routes
-import ru.blackmirrror.myplaces.ui.theme.MyPlacesTheme
+import ru.blackmirrror.myplaces.auth.AuthScreen
+import ru.blackmirrror.myplaces.common.Screen
 import ru.blackmirrror.places.PlacesFeature
 
 @AndroidEntryPoint
@@ -27,6 +26,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MyPlacesTheme {
+                Box(Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background))
                 Navigation()
             }
         }
@@ -37,8 +37,8 @@ class MainActivity : ComponentActivity() {
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Routes.AUTH_FEATURE) {
-        composable(Routes.AUTH_FEATURE) { AuthFeature(navController) }
-        composable(Routes.PLACES) { PlacesFeature(navController) }
+    NavHost(navController = navController, startDestination = Screen.PlacesScreen.route) {
+        composable(Screen.AuthScreen.route) { AuthScreen(navController) }
+        composable(Screen.PlacesScreen.route) { PlacesFeature(navController) }
     }
 }
